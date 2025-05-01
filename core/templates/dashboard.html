@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+    
+            <div class="my-3 mx-3">
+                <div class="row gx-3 my-4">
+                    <!-- Chart takes ~70% (8 of 12 cols) -->
+                    <div class="col-12 col-lg-8">
+                      <div class="card h-100 p-3">
+                        <h6 class="text-center">Kainos pokytis</h6>
+                        <canvas id="entsoe-chart" class="w-100"></canvas>
+                      </div>
+                    </div>
+                  
+                    <!-- Table takes ~30% (4 of 12 cols) -->
+                    <div class="col-12 col-lg-4">
+                      <div class="card h-100 p-3">
+                        <h6 class="text-center">Kainų lentelė</h6>
+                        <table id="entsoe-table" class="table mb-0"></table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static '/assets/js/index.js' %}"> </script>
+{% endblock scripts%}

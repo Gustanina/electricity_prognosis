@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5">
+        <h1>Prijungti įrenginiai</h1>
+
+        <!-- Spinner (shown before table loads) -->
+        <div id="loading-spinner" class="text-center py-5">
+            <div class="spinner-border" role="status"></div>
+            <div class="mt-2">Kraunama...</div>
+        </div>
+
+        <!-- Table (hidden at first) -->
+        <table id="myTable" style="display: none;"></table>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        // Simulate data loading
+        setTimeout(() => {
+            // Hide spinner
+            document.getElementById("loading-spinner").style.display = "none";
+
+            // Show table
+            const table = document.getElementById("myTable");
+            table.style.display = "table";
+
+            // Initialize table
+            const dataTable = new simpleDatatables.DataTable("#myTable", {
+                searchable: true,
+                fixedHeight: true,
+                data: {
+                    headings: ["Įrenginys", "Ar prijungtas"],
+                    data: [
+                        ["Rasberry Pi (1)", "Taip"],
+                        ["Rasberry Pi (2)", "Ne"],
+                        ["Rasberry Pi (3)", "Taip"],
+                        ["Rasberry Pi (4)", "Ne"],
+                        ["Rasberry Pi (5)", "Taip"],
+                        ["Rasberry Pi (6)", "Ne"],
+                        ["Rasberry Pi (7)", "Taip"],
+                        ["Rasberry Pi (8)", "Ne"],
+                        ["Rasberry Pi (9)", "Taip"],
+                        ["Rasberry Pi (10)", "Ne"]
+                    ]
+                }
+            });
+        }, 1000); // Simulate 1 second "loading"
+    </script>
+</body>
+</html>
+{% endblock scripts%}
